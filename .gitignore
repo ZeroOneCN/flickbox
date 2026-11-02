@@ -1,0 +1,12 @@
+build/
+device-tests/
+vibe_images/
+dist/*.idsig
+*.keystore
+__pycache__/
+
+# 本地调试时从 MediaStore 导出的转储，里面是手机相册的真实文件名，不入库
+/ibase.txt
+/vbase.txt
+/vshort.txt
+/overlap.txt
