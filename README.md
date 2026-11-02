@@ -2,6 +2,8 @@
 
 本机相册视频的抖音式上下滑动播放器。**离线、零依赖、APK 53 KB。**
 
+![主视觉](promo/hero-16x9.png)
+
 - 播放内核：系统 `MediaPlayer` + `SurfaceView`，全程只有一个播放器实例，换页时 `reset()` 复用。
 - 视频来源：`MediaStore` 自动扫描本机全部视频（自动排除实况照片的动态 mp4），不联网、不申请网络权限。
 - UI：Kotlin 纯代码构建 View，无 XML 布局、无 Compose、无 AndroidX/RecyclerView/ViewPager2，竖向翻页手势自己实现。
@@ -71,6 +73,8 @@ device-tests/*.png         真机实测截图（adb 截屏，非工程产物）
 ```
 
 `device-tests/` 里的截图是手机相册的真实内容，属于隐私，不入库；下文实测段落提到的 `nXX_*.png`、`rX_*.png` 只是本地采样时的文件名。对外看效果请看 `promo/`。
+
+![功能一览](promo/features-16x9.png)
 
 渲染层次（自下而上）：`SurfaceView`（视频） → `PagerView`（封面） → `Overlay`（控制）。
 封面不透明时挡住视频，首帧渲染后当前页封面淡出，于是看到的是实时画面；手指一开始拖动就恢复封面，滑动过程只搬运 3 张位图，与解码无关，低配机也不掉帧。
